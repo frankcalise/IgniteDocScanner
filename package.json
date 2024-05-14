@@ -32,6 +32,8 @@
   "dependencies": {
     "@expo-google-fonts/space-grotesk": "^0.2.2",
     "@expo/metro-runtime": "~3.1.3",
+    "@infinitered/react-native-mlkit-core": "^1.0.0",
+    "@infinitered/react-native-mlkit-document-scanner": "^1.0.0",
     "@react-native-async-storage/async-storage": "^1.21.0",
     "@react-navigation/native": "^6.0.2",
     "@react-navigation/native-stack": "^6.0.2",
