@@ -31,7 +31,7 @@ export type AppStackParamList = {
   Welcome: undefined
   // 🔥 Your screens go here
   DocScanner: undefined
-  // IGNITE_GENERATOR_ANCHOR_APP_STACK_PARAM_LIST
+	// IGNITE_GENERATOR_ANCHOR_APP_STACK_PARAM_LIST
 }
 
 /**
@@ -51,12 +51,9 @@ const Stack = createNativeStackNavigator<AppStackParamList>()
 const AppStack = observer(function AppStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false, navigationBarColor: colors.background }}>
-      {/* [!] Step 1: Remove the WelcomeScreen route * /}
-      {/* <Stack.Screen name="Welcome" component={Screens.WelcomeScreen} /> */}
-      {/** 🔥 Your screens go here */}
-      {/* [!] Step 2: Generate screen */}
       <Stack.Screen name="DocScanner" component={Screens.DocScannerScreen} />
-      {/* IGNITE_GENERATOR_ANCHOR_APP_STACK_SCREENS */}
+			{/* IGNITE_GENERATOR_ANCHOR_APP_STACK_SCREENS */}
+      <Stack.Screen name="Welcome" component={Screens.WelcomeScreen} />
     </Stack.Navigator>
   )
 })

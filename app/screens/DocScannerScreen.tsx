@@ -1,33 +1,12 @@
-import React, { FC } from "react"
-import { observer } from "mobx-react-lite"
-import { ViewStyle } from "react-native"
-import { AppStackScreenProps } from "app/navigators"
+import React from "react"
+import { Dimensions, ViewStyle } from "react-native"
 import { AutoImage, Button, Screen, Text } from "app/components"
 import {
   ResultFormatOptions,
   launchDocumentScannerAsync,
 } from "@infinitered/react-native-mlkit-document-scanner"
-// import { useNavigation } from "@react-navigation/native"
-// import { useStores } from "app/models"
 
-/**
- * Steps
- *   - safeAreaEdges={["top"]} to Screen
- *   - Add a Button component with text "Scan Document" and onPress={scanDocument}
- *   - Add a state variable uri and setUri to manage the scanned document URI
- *   - Add an AutoImage component to display the scanned document
- *   - Implement the scanDocument function to launch the document scanner
- */
-
-interface DocScannerScreenProps extends AppStackScreenProps<"DocScanner"> {}
-
-export const DocScannerScreen: FC<DocScannerScreenProps> = observer(function DocScannerScreen() {
-  // Pull in one of our MST stores
-  // const { someStore, anotherStore } = useStores()
-
-  // Pull in navigation via hook
-  // const navigation = useNavigation()
-
+export function DocScannerScreen() {
   const [uri, setUri] = React.useState("")
 
   async function scanDocument() {
@@ -46,10 +25,16 @@ export const DocScannerScreen: FC<DocScannerScreenProps> = observer(function Doc
     <Screen style={$root} preset="scroll" safeAreaEdges={["top"]}>
       <Text text="docScanner" />
       <Button text="Scan Document" onPress={scanDocument} />
-      {uri && <AutoImage source={{ uri }} maxWidth={400} maxHeight={400} />}
+      {uri && (
+        <AutoImage
+          source={{ uri }}
+          maxWidth={Dimensions.get("window").width}
+          maxHeight={Dimensions.get("window").height - 200}
+        />
+      )}
     </Screen>
   )
-})
+}
 
 const $root: ViewStyle = {
   flex: 1,
